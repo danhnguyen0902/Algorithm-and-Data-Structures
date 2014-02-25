@@ -1,0 +1,28 @@
+RECURSIVE:
+LL bigPow(LL a, LL x) { //Tinh a^x % module trong O(lgx)
+	if (x == 0)
+		return 1;
+	
+	LL result = bigPow(a, x >> 1);
+	result = (result * result) % module;
+
+	if(x & 1)
+		result = (result * a) % module;
+
+	return result;
+}
+
+ITERATIVE:
+template <typename T>
+T modpow(T base, T exp, T modulus)
+{
+    base %= modulus;
+    T result = 1;
+    while (exp > 0)
+    {
+        if (exp & 1) result = (result * base) % modulus;
+        base = (base * base) % modulus;
+        exp >>= 1;
+    }
+    return result;
+}

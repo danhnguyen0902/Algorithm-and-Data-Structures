@@ -1,0 +1,32 @@
+http://en.wikipedia.org/wiki/Modular_multiplicative_inverse 
+
+Tinh a^(-1) % module
+
+***gcd(a, module) must be equal to 1
+
+LL extendedEuclid(LL a, LL b, LL &q, LL &r) {
+	LL p, d;
+	
+	if (b == 0) { 
+		q = 1; 
+		r = 0; 
+		return a; 
+	}
+	
+	d = extendedEuclid(b, a % b, p, q);
+	r = p - a / b * q;
+	return d;
+}
+
+LL modInverse(LL x, LL prime) {
+    	LL p, q;
+    
+	extendedEuclid(x, prime, p, q);
+	return (p+prime)%prime;
+}
+
+int main() {
+	LL x = modInverse(a, module); 
+
+	return 0;
+}

@@ -1,0 +1,5 @@
+y^(-1) mod m = y ^ (phi(m) - 1) mod m
+
+y and m have to be coprime
+
+phi(m) : Euler's Totient Function
